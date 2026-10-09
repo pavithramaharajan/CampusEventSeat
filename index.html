@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus Event Seat Allocation</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div>
+            <h1>🎓 Campus Event</h1>
+            <p>Seat Allocation Management System</p>
+        </div>
+
+        <div class="status">
+            <span class="dot"></span>
+            System Online
+        </div>
+    </header>
+
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <!-- Event Information -->
+        <section class="event-card">
+            <div>
+                <span class="tag">LIVE EVENT</span>
+                <h2>TechFest 2026</h2>
+                <p>Campus Technology & Innovation Event</p>
+            </div>
+
+            <div class="event-info">
+                <span>📅 15 October 2026</span>
+                <span>📍 Main Auditorium</span>
+            </div>
+        </section>
+
+
+        <!-- Statistics -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <div class="stat-icon">💺</div>
+                <div>
+                    <h3 id="totalSeats">50</h3>
+                    <p>Total Seats</p>
+                </div>
+            </div>
+
+            <div class="stat-card available">
+                <div class="stat-icon">✅</div>
+                <div>
+                    <h3 id="availableSeats">50</h3>
+                    <p>Available</p>
+                </div>
+            </div>
+
+            <div class="stat-card allocated">
+                <div class="stat-icon">🎟️</div>
+                <div>
+                    <h3 id="allocatedSeats">0</h3>
+                    <p>Allocated</p>
+                </div>
+            </div>
+
+            <div class="stat-card waiting">
+                <div class="stat-icon">⏳</div>
+                <div>
+                    <h3 id="waitingCount">0</h3>
+                    <p>Waiting</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Registration + Seat Map -->
+        <section class="content-grid">
+
+            <!-- Registration -->
+            <div class="panel">
+
+                <div class="panel-title">
+                    <div>
+                        <h2>Register Student</h2>
+                        <p>Add a student to the event</p>
+                    </div>
+                    <span class="number">01</span>
+                </div>
+
+                <form id="registrationForm">
+
+                    <label for="studentId">Student ID</label>
+                    <input
+                        type="text"
+                        id="studentId"
+                        placeholder="Enter student ID"
+                        required
+                    >
+
+                    <label for="studentName">Student Name</label>
+                    <input
+                        type="text"
+                        id="studentName"
+                        placeholder="Enter student name"
+                        required
+                    >
+
+                    <label for="department">Department</label>
+
+                    <select id="department" required>
+                        <option value="">Select Department</option>
+                        <option value="AI & DS">AI & DS</option>
+                        <option value="CSE">CSE</option>
+                        <option value="ECE">ECE</option>
+                        <option value="EEE">EEE</option>
+                        <option value="IT">IT</option>
+                        <option value="MECH">MECH</option>
+                    </select>
+
+                    <button type="submit" class="primary-btn">
+                        🎟️ Allocate Seat
+                    </button>
+
+                </form>
+
+                <div id="message" class="message"></div>
+
+            </div>
+
+
+            <!-- Seat Visualization -->
+            <div class="panel">
+
+                <div class="panel-title">
+                    <div>
+                        <h2>Seat Map</h2>
+                        <p>Live seat availability</p>
+                    </div>
+                    <span class="number">02</span>
+                </div>
+
+                <div class="seat-legend">
+                    <span>
+                        <i class="available-dot"></i>
+                        Available
+                    </span>
+
+                    <span>
+                        <i class="occupied-dot"></i>
+                        Occupied
+                    </span>
+                </div>
+
+                <div id="seatMap" class="seat-map"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Student Table -->
+        <section class="panel table-panel">
+
+            <div class="panel-title">
+
+                <div>
+                    <h2>Allocated Students</h2>
+                    <p>Students with confirmed seats</p>
+                </div>
+
+                <span class="number">03</span>
+
+            </div>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Seat</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentTable">
+
+                        <tr id="emptyRow">
+                            <td colspan="5">
+                                No students registered yet.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- Waiting Queue -->
+        <section class="panel queue-panel">
+
+            <div class="panel-title">
+
+                <div>
+                    <h2>Waiting Queue</h2>
+                    <p>Students waiting for seat allocation</p>
+                </div>
+
+                <span class="number">04</span>
+
+            </div>
+
+            <div id="queueList" class="queue-list">
+
+                <div class="empty-queue">
+                    🎉 No students in waiting queue
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            Campus Event Seat Allocation System
+            <span>•</span>
+            Data Structures using C
+        </p>
+    </footer>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
